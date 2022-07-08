@@ -10,17 +10,24 @@
     function sendMessage(e) {
         e.preventDefault();
         if (message && message.length > 0) {
-            $socket.emit('send-message', message);
+            $socket.emit('dialogue:send-message', message);
             message = '';
         }
     }
 
-    $socket.on('chat-update', message => {
+    $socket.on('dialogue:update', message => {
         messageStore.update(m => [...m, message]);
     });
-
-    // onDestroy(() => $socketStore.disconnect());
 </script>
 
-<SendMessage bind:message submit={sendMessage} />
-<MessageList messages={$messageStore} />
+<section class="dialogue">
+    <SendMessage bind:message submit={sendMessage} />
+    <MessageList messages={$messageStore} />
+</section>
+
+<style lang="scss">
+    .dialogue {
+      margin-inline: auto;
+      width: min(100%, 45rem);
+    }
+</style>

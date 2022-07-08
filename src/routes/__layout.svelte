@@ -4,7 +4,7 @@
 
 <main>
     <header>
-        <MainNav />
+<!--        <MainNav />-->
     </header>
     <slot></slot>
 </main>
@@ -13,13 +13,74 @@
     @use '../lib/styles/variables' as var;
 
     :global{
+        // resets
+        *, *::before, *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html:focus-within {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          min-height: 100vh;
+          text-rendering: optimizeSpeed;
+        }
+
+        image, picture {
+          max-width: 100%;
+          display: block;
+        }
+
+        input, button, textarea, select {
+          font: inherit;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          html:focus-within {
+            scroll-behavior: auto;
+          }
+
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+        }
+
+        * {
+          font-family: var.$font--sans-serif;
+        }
+
         h1, h2, h3, h4, h5, h6,
-        p, label, button {
+        p, label, button:not(:disabled) {
           color: var.$clr--eight-ball;
         }
 
         a {
           color: var.$clr--deep-larkspur;
+        }
+
+        .page-container {
+          width: min(100%, 45rem);
+          margin-inline: auto;
+        }
+
+        .hidden {
+          position: absolute !important;
+          overflow: hidden;
+          clip: rect(1px, 1px, 1px, 1px);
+          width: 1px;
+          height: 1px;
+          word-wrap: normal;
+        }
+
+        button.icon-button svg {
+          width: 50%;
+          height: auto;
         }
     }
 </style>
