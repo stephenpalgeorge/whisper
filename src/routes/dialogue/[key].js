@@ -2,7 +2,7 @@ import getSSRCookie from "$lib/utils/getSSRCookie.js";
 
 export async function get({ params, request }) {
     const authCookie = getSSRCookie('dialogue:auth', request);
-    if (authCookie.length > 1) {
+    if (authCookie.length !== 1) {
         return {
             status: 403,
         }

@@ -1,10 +1,10 @@
 @use 'sass:math';
 @use './variables' as var;
 
-@mixin inline-form {
+@mixin inline-form($block: var.$scale--900) {
   $border-rad: .25rem;
 
-  margin-block: var.$scale--900;
+  margin-block: $block;
   width: 100%;
   display: flex;
   align-items: center;

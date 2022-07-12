@@ -86,6 +86,13 @@
           }
         }
 
+        .pre-title {
+          font-size: var.$scale--300;
+          font-style: italic;
+          text-transform: uppercase;
+          color: var.$clr--deep-larkspur;
+        }
+
         a {
           color: var.$clr--deep-larkspur;
           &:focus {
