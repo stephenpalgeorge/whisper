@@ -10,6 +10,16 @@ $clr--aquitaine:                  #88ABB8;
 $clr--melody:                     #BECBD6;
 $clr--alice-blue:                 #F0F8FF;
 $clr--pomegranate:                #C35650;
+$colors: (
+  eight-ball: $clr--eight-ball,
+  armor: $clr--armor,
+  deep-larkspur: $clr--deep-larkspur,
+  approaching-dusk: $clr--approaching-dusk,
+  aquitaine: $clr--aquitaine,
+  melody: $clr--melody,
+  alice-blue: $clr--alice-blue,
+  pomegranate: $clr--pomegranate,
+);
 
 $scale--100:                      0.512rem;
 $scale--200:                      0.64rem;
@@ -20,5 +30,16 @@ $scale--600:                      1.563rem;
 $scale--700:                      1.953rem;
 $scale--800:                      2.441rem;
 $scale--900:                      3.052rem;
+$scale: (
+  100: $scale--100,
+  200: $scale--200,
+  300: $scale--300,
+  400: $scale--400,
+  500: $scale--500,
+  600: $scale--600,
+  700: $scale--700,
+  800: $scale--800,
+  900: $scale--900,
+);
 
 $animation-duration--base:        0.25s;

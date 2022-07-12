@@ -1,4 +1,5 @@
 <script>
+    import {goto} from "$app/navigation";
     import Meta from '$lib/components/Globals/Meta.svelte';
     import * as db from '$lib/queries';
     import FindWhisper from "$lib/components/Forms/FindWhisper.svelte";
@@ -25,6 +26,8 @@
             whisper_password = data.origin === 'password' ? "" : whisper_password;
         } else {
             console.log(data);
+            // if all is good, forward the user onto the dialogue page
+            await goto(`/dialogue/${data.dialogue.key}`);
         }
     }
 </script>
@@ -32,6 +35,13 @@
 <Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
 
 <div class="page-container">
+    <h1>Whisper</h1>
+    <p class="lead clr:aquitaine">The place for secrets.</p>
+    <p>
+        Share anything, have conversations and make announcements safe in the knowledge that
+        nothing is tracked, none of your data is stored and you don't even need an account. You decide
+        who gets access, and how long your Whispers live for.
+    </p>
     <FindWhisper
             submit={findWhisper}
             bind:id={whisper_id}

@@ -55,18 +55,50 @@
           font-family: var.$font--sans-serif;
         }
 
+        ::selection {
+          background-color: rgba(var.$clr--pomegranate, .2);
+        }
+
         h1, h2, h3, h4, h5, h6,
         p, label, button:not(:disabled) {
           color: var.$clr--eight-ball;
         }
 
+        h1 {
+          font-size: var.$scale--900;
+          text-transform: uppercase;
+          + * {
+            margin-top: var.$scale--900;
+          }
+        }
+
+        p {
+          font-size: var.$scale--400;
+          line-height: 1.8;
+          & + & {
+            margin-top: var.$scale--400;
+          }
+
+          &.lead {
+            font-size: var.$scale--500;
+            font-weight: bold;
+            line-height: 1.6;
+          }
+        }
+
         a {
           color: var.$clr--deep-larkspur;
+          &:focus {
+            outline: none;
+            background-color: rgba(var.$clr--deep-larkspur, .2);
+            color: var.$clr--eight-ball;
+          }
         }
 
         .page-container {
           width: min(100%, 45rem);
           margin-inline: auto;
+          padding-block: var.$scale--900;
         }
 
         .hidden {
@@ -81,6 +113,17 @@
         button.icon-button svg {
           width: 50%;
           height: auto;
+        }
+
+        // utilities
+        @each $name, $hex in var.$colors {
+          .clr\:#{$name} {
+            color: $hex;
+          }
+
+          .bg\:#{$name} {
+            background-color: $hex;
+          }
         }
     }
 </style>

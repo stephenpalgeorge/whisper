@@ -2,31 +2,37 @@
 @use './variables' as var;
 
 @mixin inline-form {
-  margin-block: var.$scale--600;
+  $border-rad: .25rem;
+
+  margin-block: var.$scale--900;
   width: 100%;
   display: flex;
   align-items: center;
-  padding: math.div(var.$scale--100, 2) var.$scale--100;
+  padding: var.$scale--100;
 
   border: .125rem solid var.$clr--deep-larkspur;
-  border-radius: .25rem;
+  border-radius: $border-rad;
 
   > input {
     flex-grow: 1;
     padding: var.$scale--300 var.$scale--400;
+    margin-right: var.$scale--100;
     line-height: 1.8;
     border: none;
+    border-radius: $border-rad;
     background: transparent;
+    font-weight: bold;
 
     &:focus {
       outline: none;
+      background: rgba(var.$clr--melody, .2);
     }
   }
 
   button {
     height: var.$scale--900;
     width: var.$scale--900;
-    border-radius: .25rem;
+    border-radius: $border-rad;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,6 +47,11 @@
       cursor: auto;
       background: var.$clr--alice-blue;
       border-color: var.$clr--melody;
+    }
+
+    &:focus {
+      outline: .25rem solid rgba(var.$clr--approaching-dusk, .6);
+      outline-offset: .125rem;
     }
   }
 }

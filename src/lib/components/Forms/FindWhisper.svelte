@@ -14,7 +14,7 @@
         <p>You're looking for a Whisper with an ID: <mark>{id}</mark>. <a href="#" on:click={e => {
             e.preventDefault();
             step = 1;
-        }}>Edit this.</a></p>
+        }}>Edit this and search again.</a></p>
     {/if}
 
     {#if step === 1}
@@ -60,6 +60,7 @@
         mark {
           padding-inline: math.div(var.$scale--100, 2);
           background-color: rgba(var.$clr--aquitaine, .4);
+          font-weight: bold;
         }
       }
 
