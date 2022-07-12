@@ -35,7 +35,7 @@
 <Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
 
 <div class="page-container">
-    <h1>Whisper</h1>
+    <h1>Shhh...Whisper</h1>
     <p class="lead clr:aquitaine">The place for secrets.</p>
     <p>
         Share anything, have conversations and make announcements safe in the knowledge that

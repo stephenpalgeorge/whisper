@@ -59,6 +59,10 @@
           background-color: rgba(var.$clr--pomegranate, .2);
         }
 
+        section + section {
+          margin-top: var.$scale--900;
+        }
+
         h1, h2, h3, h4, h5, h6,
         p, label, button:not(:disabled) {
           color: var.$clr--eight-ball;
@@ -69,6 +73,13 @@
           text-transform: uppercase;
           + * {
             margin-top: var.$scale--900;
+          }
+        }
+
+        h2 {
+          font-size: var.$scale--700;
+          + * {
+            margin-top: var.$scale--500;
           }
         }
 
