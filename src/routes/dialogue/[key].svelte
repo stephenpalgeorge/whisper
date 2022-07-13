@@ -1,9 +1,12 @@
 <script>
+    import {browser} from "$app/env";
+    import {onMount, onDestroy} from "svelte";
     import {socket} from "$lib/stores/socketStore.js";
     import Username from "$lib/components/Forms/Username.svelte";
 
     export let dialogue;
     let username = "";
+
     function handleUsername(e) {
         e.preventDefault();
         if (e.target[0].value.length < 3) {
@@ -12,9 +15,17 @@
         }
 
         username = e.target[0].value;
+        window.localStorage.setItem('name', e.target[0].value);
+        $socket.emit('dialogue:join', {username, key: dialogue.key});
     }
 
-    $socket.emit('dialogue:join', "...USER ID..., ...DIALOGUE.KEY / ID...");
+    onMount(() => {
+        username = window.localStorage.getItem("name") || "";
+    });
+
+    onDestroy(() => {
+        if (browser) window.localStorage.removeItem("name");
+    });
 </script>
 
 <div class="page-container">
