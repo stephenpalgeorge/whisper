@@ -1,8 +1,7 @@
 <script context="module">
-    export function load({ error, status }) {
+    export function load({ status }) {
         return {
             props: {
-                error,
                 status,
             }
         }
@@ -10,11 +9,18 @@
 </script>
 
 <script>
-    export let error;
-    export let status;
+    import Meta from "$lib/components/Globals/Meta.svelte";
+    import LinkList from "$lib/components/LinkList.svelte";
 
-    $: console.log(error);
+    export let status;
+    const links = [
+        { url: '/', title: 'Go home', description: 'Go back to the homepage and create or search for a whisper.' },
+        { url: '/contact', title: 'Get in touch', description: 'Facing an issue you can\'t resolve? Let us know and we\'ll do our best to fix it.' },
+        { url: '/about', title: 'More about Whisper', description: 'Want to know more about us? This page will fill you in.' },
+    ];
 </script>
+
+<Meta title={`${status} Error`} description="Something went wrong..." />
 
 <div class="page-container">
     <section>
@@ -42,57 +48,6 @@
 
     <section>
         <h2>Useful links</h2>
-        <ul>
-            <li>
-                <a href="/">
-                    <h3>Go home.</h3>
-                    <p>Go back to the homepage and create or search for a whisper.</p>
-                </a>
-            </li>
-            <li>
-                <a href="/contact">
-                    <h3>Get in touch.</h3>
-                    <p>Facing an issue you can't resolve? Let us know and we'll do our best to fix it.</p>
-                </a>
-            </li>
-            <li>
-                <a href="/about">
-                    <h3>More about Whisper.</h3>
-                    <p>Want to know more about us? This page will fill you in.</p>
-                </a>
-            </li>
-        </ul>
+        <LinkList {links} />
     </section>
 </div>
-
-<style lang="scss">
-    @use '../lib/styles/variables' as var;
-    ul {
-      list-style-type: none;
-      display: flex;
-      flex-flow: row nowrap;
-      margin-inline: var.$scale--400 * -1;
-
-      li {
-        flex-grow: 1;
-        margin-inline: var.$scale--400;
-        padding: var.$scale--400 var.$scale--300;
-        border: 1px solid var.$clr--approaching-dusk;
-        box-shadow: 0 .25rem .5rem .125rem rgba(var.$clr--eight-ball, .16);
-
-        a {
-          text-decoration: none;
-          cursor: pointer;
-        }
-
-        h3 {
-          text-decoration: underline;
-          color: var.$clr--aquitaine;
-        }
-
-        p {
-          margin-top: var.$scale--200;
-        }
-      }
-    }
-</style>

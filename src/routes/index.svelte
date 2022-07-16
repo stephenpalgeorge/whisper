@@ -1,6 +1,7 @@
 <script>
     import {goto} from "$app/navigation";
     import Meta from '$lib/components/Globals/Meta.svelte';
+    import LinkList from "$lib/components/LinkList.svelte";
     import * as db from '$lib/queries';
     import FindWhisper from "$lib/components/Forms/FindWhisper.svelte";
 
@@ -30,6 +31,12 @@
             await goto(`/dialogue/${data.dialogue.key}`);
         }
     }
+
+    const links = [
+        { url: '/create/dialogue', title: 'Create a dialogue', description: 'Dialogues are password-protected places to talk and discuss.' },
+        { url: '/create/note', title: 'Create a note', description: 'Notes are a secure way for you to share information or make an announcement.' },
+        { url: '/create/location', title: 'Share a location', description: 'A safe way to let people know where you are, or where to meet you.' },
+    ];
 </script>
 
 <Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
@@ -49,4 +56,5 @@
             bind:step={form_progress}
             bind:error={form_error}
     />
+    <LinkList {links} />
 </div>

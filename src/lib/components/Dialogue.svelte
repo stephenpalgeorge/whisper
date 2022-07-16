@@ -2,6 +2,7 @@
     // store imports
     import {messageStore} from "$lib/stores/messageStore.js";
     import {socket} from "$lib/stores/socketStore.js";
+    import {userStore} from "$lib/stores/userStore.js";
     // component imports
     import SendMessage from "$lib/components/Forms/SendMessage.svelte";
     import MessageList from "$lib/components/MessageList.svelte";
@@ -10,13 +11,30 @@
     function sendMessage(e) {
         e.preventDefault();
         if (message && message.length > 0) {
-            $socket.emit('dialogue:send-message', message);
+            const now = new Date();
+            const data = {
+                message,
+                username: $userStore,
+                timestamp: `${now.getDate()}/${now.getMonth() + 1} - ${now.getHours()}:${now.getMinutes()}`,
+                type: 'chat',
+            };
+            $socket.emit('dialogue:send-message', data);
             message = '';
         }
     }
 
-    $socket.on('dialogue:update', message => {
-        messageStore.update(m => [...m, message]);
+    $socket.on('dialogue:update', data => {
+        messageStore.update(m => [...m, data]);
+    });
+
+    $socket.on('dialogue:join', data => {
+        console.log(data);
+        const now = new Date();
+        messageStore.update(m => [...m, {
+            message: `"${data.username}" has joined the dialogue.`,
+            timestamp: `${now.getDate()}/${now.getMonth() + 1} - ${now.getHours()}:${now.getMinutes()}`,
+            type: 'notification',
+        }]);
     });
 </script>
 

@@ -1,41 +1,38 @@
 <script>
-    import {browser} from "$app/env";
-    import {onMount, onDestroy} from "svelte";
     import {socket} from "$lib/stores/socketStore.js";
+    import {userStore} from "$lib/stores/userStore.js";
+
     import Username from "$lib/components/Forms/Username.svelte";
+    import Dialogue from "$lib/components/Dialogue.svelte";
+    import Meta from "$lib/components/Globals/Meta.svelte";
 
     export let dialogue;
-    let username = "";
+
+    const PAGE_TITLE = 'Dialogue';
+    const PAGE_DESCRIPTION = 'Talk in secret, only people with the ID and password for this Dialogue will ever be able to find it.';
 
     function handleUsername(e) {
         e.preventDefault();
         if (e.target[0].value.length < 3) {
-            username = "";
+            $userStore = "";
             return;
         }
 
-        username = e.target[0].value;
-        window.localStorage.setItem('name', e.target[0].value);
-        $socket.emit('dialogue:join', {username, key: dialogue.key});
+        $userStore = e.target[0].value;
+        $socket.emit('dialogue:join', {username: $userStore, key: dialogue.key});
     }
-
-    onMount(() => {
-        username = window.localStorage.getItem("name") || "";
-    });
-
-    onDestroy(() => {
-        if (browser) window.localStorage.removeItem("name");
-    });
 </script>
 
+<Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
+
 <div class="page-container">
-    {#if username.length === 0}
-    <!--  USERNAME FORM  -->
+    {#if $userStore.length === 0}
         <Username submit={handleUsername} />
     {:else}
         <div class="dialogue-container">
             <span class="pre-title">Dialogue {dialogue.wid}</span>
             <h1>{dialogue.name}</h1>
+            <Dialogue />
         </div>
     {/if}
 </div>

@@ -2,7 +2,7 @@
 @use './variables' as var;
 
 @mixin inline-form($block: var.$scale--900) {
-  $border-rad: .25rem;
+  $border-rad: .125rem;
 
   margin-block: $block;
   width: 100%;
@@ -10,7 +10,7 @@
   align-items: center;
   padding: var.$scale--100;
 
-  border: .125rem solid var.$clr--deep-larkspur;
+  border: .25rem solid var.$clr--deep-larkspur;
   border-radius: $border-rad;
 
   > input {
@@ -37,7 +37,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: .125rem solid var.$clr--deep-larkspur;
+    border: .25rem solid var.$clr--deep-larkspur;
     background: var.$clr--deep-larkspur;
 
     transition:
@@ -45,6 +45,7 @@
             background-color var.$animation-duration--base ease-out;
     &:disabled {
       cursor: auto;
+      pointer-events: none;
       background: var.$clr--alice-blue;
       border-color: var.$clr--melody;
     }

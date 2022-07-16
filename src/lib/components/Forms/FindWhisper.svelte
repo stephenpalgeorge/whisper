@@ -9,6 +9,7 @@
     export let error = {};
 </script>
 
+<h2 class="hidden">Find a Whisper</h2>
 <form on:submit={submit}>
     {#if step === 2}
         <p>You're looking for a Whisper with an ID: <mark>{id}</mark>. <a href="#" on:click={e => {
@@ -31,7 +32,7 @@
         </button>
     {:else}
         <label for="find-whisper-password" class="hidden">Enter the password for this whisper.</label>
-        <input type="password" name="find-whisper-password" id="find-whisper-password" placeholder={`Enter the password for whisper ${id}`} bind:value={password} />
+        <input type="password" name="find-whisper-password" id="find-whisper-password" placeholder={`Enter the password for Whisper ${id}`} bind:value={password} />
         {#if error.origin && error.origin === 'password'}
             <span class="error">{error.message}</span>
         {/if}
