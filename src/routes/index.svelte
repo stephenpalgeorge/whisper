@@ -26,16 +26,15 @@
             whisper_id = data.origin === 'id' ? "" : whisper_id;
             whisper_password = data.origin === 'password' ? "" : whisper_password;
         } else {
-            console.log(data);
-            // if all is good, forward the user onto the dialogue page
+            // if all is good, forward the user onto the dialogues page
             await goto(`/dialogue/${data.dialogue.key}`);
         }
     }
 
     const links = [
-        { url: '/create/dialogue', title: 'Create a dialogue', description: 'Dialogues are password-protected places to talk and discuss.' },
-        { url: '/create/note', title: 'Create a note', description: 'Notes are a secure way for you to share information or make an announcement.' },
-        { url: '/create/location', title: 'Share a location', description: 'A safe way to let people know where you are, or where to meet you.' },
+        { url: '/create/dialogues', title: 'Create a dialogue', description: 'Dialogues are password-protected places to talk and discuss.' },
+        { url: '/create/notes', title: 'Create a note', description: 'Notes are a secure way for you to share information or make an announcement.' },
+        { url: '/create/locations', title: 'Share a location', description: 'A safe way to let people know where you are, or where to meet you.' },
     ];
 </script>
 

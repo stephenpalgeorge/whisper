@@ -6,6 +6,7 @@
     import Dialogue from "$lib/components/Dialogue.svelte";
     import Meta from "$lib/components/Globals/Meta.svelte";
 
+    // `dialogue` populated by endpoint -> @see './[key].js'.
     export let dialogue;
 
     const PAGE_TITLE = 'Dialogue';
@@ -19,7 +20,7 @@
         }
 
         $userStore = e.target[0].value;
-        $socket.emit('dialogue:join', {username: $userStore, key: dialogue.key});
+        $socket.emit('dialogues:join', {username: $userStore, key: dialogue.key});
     }
 </script>
 
@@ -36,7 +37,3 @@
         </div>
     {/if}
 </div>
-
-<style lang="scss">
-
-</style>

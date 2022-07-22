@@ -37,6 +37,12 @@
                 You might not be properly authenticated for this whisper, or it could have expired
                 and no longer be available.
             </p>
+        {:else if status === 500}
+            <p>
+                <strong>Oh no! Something went wrong.</strong><br />
+                Sorry we can't give you more information, but something broke on our end. Try again,
+                and if the problem persists, do <a href="/contact">get in touch.</a>
+            </p>
         {:else}
             <p>
                 <strong>Sorry, something has gone wrong!</strong><br />

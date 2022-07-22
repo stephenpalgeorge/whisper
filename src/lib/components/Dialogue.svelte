@@ -18,17 +18,16 @@
                 timestamp: `${now.getDate()}/${now.getMonth() + 1} - ${now.getHours()}:${now.getMinutes()}`,
                 type: 'chat',
             };
-            $socket.emit('dialogue:send-message', data);
+            $socket.emit('dialogues:send-message', data);
             message = '';
         }
     }
 
-    $socket.on('dialogue:update', data => {
+    $socket.on('dialogues:update', data => {
         messageStore.update(m => [...m, data]);
     });
 
-    $socket.on('dialogue:join', data => {
-        console.log(data);
+    $socket.on('dialogues:join', data => {
         const now = new Date();
         messageStore.update(m => [...m, {
             message: `"${data.username}" has joined the dialogue.`,
