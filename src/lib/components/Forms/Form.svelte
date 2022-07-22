@@ -43,6 +43,7 @@
         margin-top: var.$scale--800;
         padding: var.$scale--400 var.$scale--900;
         border: none;
+        border-radius: var.$border-radius;
         background: var.$clr--aquitaine;
         font-weight: bold;
         color: var.$clr--alice-blue;
@@ -57,6 +58,11 @@
         &:disabled {
           background-color: var.$clr--armor;
           pointer-events: none;
+        }
+
+        &:focus {
+          outline: .25rem solid rgba(var.$clr--aquitaine, .4);
+          outline-offset: .125rem;
         }
       }
     }

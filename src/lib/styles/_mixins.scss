@@ -161,7 +161,7 @@
 }
 
 @mixin inline-form($block: var.$scale--900) {
-  $border-rad: .125rem;
+  $border-rad: var.$border-radius;
 
   @include form-base($block: $block);
   display: flex;
