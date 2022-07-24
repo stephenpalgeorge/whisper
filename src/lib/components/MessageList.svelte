@@ -1,4 +1,13 @@
 <script>
+    /**
+     *
+     * `<MessageList />` is a simple presentational component that displays a collection
+     * of messages in a list.
+     *
+     * Messages are styled depending on their `type`. Supported types are 'chat' & 'notification'.
+     *
+     * */
+
     import {userStore} from "$lib/stores/userStore.js";
 
     export let messages = [];
@@ -8,6 +17,7 @@
     <ul>
         {#each messages as item}
             {#if item.type === 'chat'}
+                <!-- the `authored` class is applied if the current user is the author -->
                 <li data-author={item.username} class:authored={item.username === $userStore} class="message-{item.type}">
                     <span class="message-username">{item.username}</span>
                     <p>{item.message}</p>

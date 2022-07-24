@@ -1,4 +1,11 @@
 <script>
+    /**
+     *
+     * The `Find` icon is a simple outline vector graphic of
+     * a magnifying glass.
+     *
+     * */
+
     export let color = "#000";
 </script>
 

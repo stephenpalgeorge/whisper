@@ -4,9 +4,11 @@
 
 <main>
     <header>
+    <!-- @todo re-instate main nav (needs styling etc) -->
 <!--        <MainNav />-->
     </header>
     <slot></slot>
+    <!-- @todo add a footer -->
 </main>
 
 <style lang="scss">
@@ -24,8 +26,6 @@
           .bg\:#{$name} { background-color: $hex; }
         }
 
-        .block {
-          display: block;
-        }
+        .block { display: block; }
     }
 </style>

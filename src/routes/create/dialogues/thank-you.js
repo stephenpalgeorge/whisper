@@ -1,18 +1,14 @@
+import * as db from "$lib/database";
+
 export async function post({ request }) {
+    // turn the request's formData into an object where the input names
+    // are the keys, and the input values are the object values.
     const formData = await request.formData();
     const dataObject = Object.fromEntries(formData);
 
     // make request to API to create the dialogue,
     // respond accordingly...
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/dialogue`, {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(dataObject),
-    });
-
+    const res = await db.createWhisper(dataObject);
     const data = await res.json();
 
     if (!res.ok) {

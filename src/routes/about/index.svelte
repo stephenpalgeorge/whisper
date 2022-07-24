@@ -1,4 +1,12 @@
 <script>
+    /**
+     * @url - '/about'
+     *
+     * The 'About' page gives information about Whisper - what the app is,
+     * how it works, its philosophy and values and roadmap for the future.
+     *
+     */
+
     import Meta from "$lib/components/Globals/Meta.svelte";
 
     const PAGE_TITLE = "About us";

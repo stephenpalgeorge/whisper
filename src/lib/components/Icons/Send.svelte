@@ -1,4 +1,11 @@
 <script>
+    /**
+     *
+     * The `Send` icon is a simple outline vector graphic of
+     * a paper aeroplane.
+     *
+     * */
+
     export let color = "#000";
 </script>
 

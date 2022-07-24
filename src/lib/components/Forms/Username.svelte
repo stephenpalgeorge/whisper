@@ -1,7 +1,20 @@
 <script>
+    /**
+     *
+     * `<Username />` is a simple inline form.
+     * It is also a 'presentational' component, in the sense that its purpose is simple to
+     * display the UI - the logic of what should happen to the data on submission is housed
+     * and passed in from the parent context.
+     *
+     * */
+
+    // ICON IMPORTS ----------
     import Next from "$lib/components/Icons/Next.svelte";
 
+    // PROPS -----------------
     export let submit;
+
+    // local variables
     let value = "";
     $: disabled = value.length < 3;
 </script>

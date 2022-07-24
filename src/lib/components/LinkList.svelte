@@ -1,4 +1,14 @@
 <script>
+    /**
+     *
+     * `<LinkList />` is a presentational component that simply displays a
+     * collection of links - these are styled as "cards" in the UI, but the
+     * entire card is a clickable area.
+     *
+     * */
+
+    // we expect to receive an array of object, wherein each object has properties
+    // `url`, `title` and `description`.
     export let links;
 </script>
 
@@ -15,6 +25,7 @@
 
 <style lang="scss">
   @use '../styles/variables' as var;
+
   ul {
     list-style-type: none;
     display: flex;

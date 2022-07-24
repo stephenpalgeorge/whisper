@@ -13,6 +13,7 @@
     import LinkList from "$lib/components/LinkList.svelte";
 
     export let status;
+    // data for the link-list component.
     const links = [
         { url: '/', title: 'Go home', description: 'Go back to the homepage and create or search for a whisper.' },
         { url: '/contact', title: 'Get in touch', description: 'Facing an issue you can\'t resolve? Let us know and we\'ll do our best to fix it.' },

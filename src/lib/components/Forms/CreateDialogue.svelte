@@ -1,9 +1,22 @@
 <script>
+    /**
+     *
+     * `<CreateDialogue />` is an example of a `Form` in the Whisper design system, and it
+     * therefore makes use of the 'Form' wrapper component.
+     *
+     * 'CreateDialogue' is used for making a post request that will add a new 'dialogue' to
+     * the Whisper DB (the API and server for this are decoupled from this front-end and exist
+     * in the `whisper-api` repo).
+     *
+     * */
+
     import Form from './Form.svelte';
     import FormField from "./FormField.svelte";
 
-    export let name = "";
-    export let password = "";
+    // local state to track the value of the required inputs, this allows
+    // us to dynamically update the `disabled` state of the submit button.
+    let name = "";
+    let password = "";
     $: disabled = name.length === 0 || password.length === 0;
 </script>
 

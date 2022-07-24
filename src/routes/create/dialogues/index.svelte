@@ -1,4 +1,12 @@
 <script>
+    /**
+     * @url - '/create/dialogues'
+     *
+     * The 'Create Dialogues' page is home for a simple form that allows the user
+     * to create a new dialogue.
+     *
+     */
+
     import Meta from "$lib/components/Globals/Meta.svelte";
     import CreateDialogue from "$lib/components/Forms/CreateDialogue.svelte";
 

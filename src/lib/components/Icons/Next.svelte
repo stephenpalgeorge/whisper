@@ -1,4 +1,11 @@
 <script>
+    /**
+     *
+     * The `Next` icon is a simple outline vector graphic of
+     * an arrow pointing to the right.
+     *
+     * */
+
     export let color = "#000";
 </script>
 

@@ -1,8 +1,8 @@
 <script>
     import {goto} from "$app/navigation";
+    import * as db from '$lib/database';
     import Meta from '$lib/components/Globals/Meta.svelte';
     import LinkList from "$lib/components/LinkList.svelte";
-    import * as db from '$lib/queries';
     import FindWhisper from "$lib/components/Forms/FindWhisper.svelte";
 
     const PAGE_TITLE = "Welcome";
@@ -12,6 +12,8 @@
     let whisper_password = "";
     let form_progress = 1;
     let form_error = {};
+
+    // form whisper submission handler:
     async function findWhisper(e) {
         e.preventDefault();
         const res = await db.getWhisperById(whisper_id, whisper_password);
@@ -31,6 +33,7 @@
         }
     }
 
+    // data for the link-list component:
     const links = [
         { url: '/create/dialogues', title: 'Create a dialogue', description: 'Dialogues are password-protected places to talk and discuss.' },
         { url: '/create/notes', title: 'Create a note', description: 'Notes are a secure way for you to share information or make an announcement.' },

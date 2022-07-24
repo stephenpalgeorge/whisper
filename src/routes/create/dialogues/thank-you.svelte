@@ -1,4 +1,13 @@
 <script>
+    /**
+     * @url - '/create/dialogues/thank-you'
+     *
+     * The 'thank-you' or 'success' page for creating a new dialogue confirms to the
+     * user that their dialogue was successfully created and provides some useful links
+     * and information about the dialogue.
+     *
+     */
+
     import Meta from "$lib/components/Globals/Meta.svelte";
     // `dialogue` populated by endpoint -> @see './thank-you.js'.
     export let dialogue;
