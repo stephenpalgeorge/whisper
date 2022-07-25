@@ -1,0 +1,103 @@
+@use 'sass:math';
+@use '../variables' as var;
+
+@mixin globals {
+  * {
+    font-family: var.$font--sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(var.$clr--pomegranate, .2);
+  }
+
+  section + section {
+    margin-top: var.$scale--notch-900;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  p, label, button:not(:disabled) {
+    color: var.$clr--eight-ball;
+  }
+
+  h1 {
+    line-height: 1.2;
+    letter-spacing: 1px;
+    font-size: var.$scale--notch-900;
+    text-transform: uppercase;
+    text-shadow: .125rem .125rem 0 #fff, .25rem .25rem 0 rgba(var.$clr--eight-ball, .16);
+    + * {
+      margin-top: var.$scale--notch-900;
+    }
+  }
+
+  h2 {
+    font-size: var.$scale--notch-700;
+    + * {
+      margin-top: var.$scale--notch-500;
+    }
+  }
+
+  mark {
+    background-color: rgba(var.$clr--pomegranate, .25);
+    padding: math.div(var.$scale--notch-100, 2) var.$scale--notch-100;
+  }
+
+  p > mark {
+    font-size: inherit;
+  }
+
+  p, mark, a {
+    font-size: var.$scale--notch-400;
+    line-height: 1.8;
+    & + & {
+      margin-top: var.$scale--notch-400;
+    }
+
+    &.large {
+      font-size: var.$scale--notch-500;
+      line-height: 1.6;
+    }
+
+    &.lead {
+      font-size: var.$scale--notch-500;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+  }
+
+  .pre-title {
+    font-size: var.$scale--notch-300;
+    font-style: italic;
+    text-transform: uppercase;
+    color: var.$clr--deep-larkspur;
+  }
+
+  a {
+    color: var.$clr--deep-larkspur;
+    &:focus {
+      outline: none;
+      background-color: rgba(var.$clr--deep-larkspur, .2);
+      color: var.$clr--eight-ball;
+    }
+  }
+
+  .page-container {
+    width: min(100%, 45rem);
+    margin-inline: auto;
+    padding-block: var.$scale--notch-900;
+  }
+
+  .hidden {
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+  }
+
+  button.icon-button svg {
+    width: 50%;
+    height: auto;
+  }
+}

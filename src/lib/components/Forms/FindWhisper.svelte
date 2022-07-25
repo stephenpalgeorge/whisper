@@ -89,7 +89,7 @@
         font-style: italic;
 
         mark {
-          padding-inline: math.div(var.$scale--100, 2);
+          padding-inline: math.div(var.$scale--notch-100, 2);
           background-color: rgba(var.$clr--aquitaine, .4);
           font-weight: bold;
         }

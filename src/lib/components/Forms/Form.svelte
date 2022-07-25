@@ -56,24 +56,24 @@
 
     form {
       @include m.form-base;
-      padding: var.$scale--600 var.$scale--500;
+      padding: var.$scale--notch-600 var.$scale--notch-500;
       // barely noticeable border, just lifts it off the background slightly
       border: 1px solid var.$clr--alice-blue;
       // @todo consider changing this to match the h1 text-shadow style a bit more?
       box-shadow: 0 .5rem .5rem 0 rgba(var.$clr--eight-ball, .24);
 
       button[type="submit"] {
-        margin-top: var.$scale--800;
-        padding: var.$scale--400 var.$scale--900;
+        margin-top: var.$scale--notch-800;
+        padding: var.$scale--notch-400 var.$scale--notch-900;
         border: none;
-        border-radius: var.$border-radius;
+        border-radius: var.$bdr--radius;
         background: var.$clr--aquitaine;
         font-weight: bold;
         color: var.$clr--alice-blue;
-        font-size: var.$scale--500;
+        font-size: var.$scale--notch-500;
         cursor: pointer;
 
-        transition: background-color var.$animation-duration--base ease-out;
+        transition: background-color var.$mtn--duration-base ease-out;
         &:hover {
           background-color: darken(var.$clr--aquitaine, 10%);
         }

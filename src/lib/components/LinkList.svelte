@@ -30,12 +30,12 @@
     list-style-type: none;
     display: flex;
     flex-flow: row nowrap;
-    margin-inline: var.$scale--400 * -1;
+    margin-inline: var.$scale--notch-400 * -1;
 
     li {
       flex-grow: 1;
-      margin-inline: var.$scale--400;
-      padding: var.$scale--400 var.$scale--300;
+      margin-inline: var.$scale--notch-400;
+      padding: var.$scale--notch-400 var.$scale--notch-300;
       border: 1px solid var.$clr--approaching-dusk;
       box-shadow: 0 .25rem .5rem .125rem rgba(var.$clr--eight-ball, .16);
 
@@ -51,7 +51,7 @@
       }
 
       p {
-        margin-top: var.$scale--200;
+        margin-top: var.$scale--notch-200;
       }
     }
   }

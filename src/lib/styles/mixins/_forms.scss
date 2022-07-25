@@ -1,0 +1,74 @@
+@use '../variables' as var;
+
+@mixin input-base($size: reg) {
+  flex-grow: 1;
+  line-height: 1.8;
+  background: transparent;
+  &::placeholder {
+    font-style: italic;
+  }
+
+  @if $size == reg {
+    padding: var.$scale--notch-200 var.$scale--notch-300;
+  } @else if $size == lg {
+    padding: var.$scale--notch-300 var.$scale--notch-400;
+  } @else {
+    @error "Unknown size #{$size}";
+  }
+}
+
+@mixin form-base($block: var.$scale--notch-900) {
+  margin-block: $block;
+  width: 100%;
+}
+
+@mixin inline-form($block: var.$scale--notch-900) {
+  $border-rad: var.$bdr--radius;
+
+  @include form-base($block: $block);
+  display: flex;
+  align-items: center;
+  padding: var.$scale--notch-100;
+
+  border: .25rem solid var.$clr--deep-larkspur;
+  border-radius: $border-rad;
+
+  > input {
+    @include input-base(lg);
+    margin-right: var.$scale--notch-100;
+    border: none;
+    border-radius: $border-rad;
+
+    &:focus {
+      outline: none;
+      background: rgba(var.$clr--melody, .2);
+    }
+  }
+
+  button {
+    height: var.$scale--notch-900;
+    width: var.$scale--notch-900;
+    border-radius: $border-rad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: .25rem solid var.$clr--deep-larkspur;
+    background: var.$clr--deep-larkspur;
+
+    transition:
+            border-color var.$mtn--duration-base ease-out,
+            background-color var.$mtn--duration-base ease-out;
+    &:disabled {
+      cursor: auto;
+      pointer-events: none;
+      background: var.$clr--alice-blue;
+      border-color: var.$clr--melody;
+    }
+
+    &:focus {
+      outline: .25rem solid rgba(var.$clr--approaching-dusk, .6);
+      outline-offset: .125rem;
+    }
+  }
+}

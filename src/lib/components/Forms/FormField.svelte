@@ -43,14 +43,14 @@
           // input[required] + label etc.
           &.required::after {
             content: '*';
-            margin-left: math.div(var.$scale--100, 2);
+            margin-left: math.div(var.$scale--notch-100, 2);
             color: var.$clr--pomegranate;
           }
         }
 
         label + input,
         label + textarea {
-          margin-top: var.$scale--100;
+          margin-top: var.$scale--notch-100;
         }
 
         input, textarea {
@@ -66,7 +66,7 @@
 
         span.description {
           font-size: 1em;
-          margin-top: var.$scale--100;
+          margin-top: var.$scale--notch-100;
         }
 
         span.error {
@@ -75,7 +75,7 @@
       }
 
       .form-field + * {
-        margin-top: var.$scale--400;
+        margin-top: var.$scale--notch-400;
       }
   }
 </style>

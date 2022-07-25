@@ -21,7 +21,7 @@
         @include m.globals;
 
         // utilities
-        @each $name, $hex in var.$colors {
+        @each $name, $hex in var.$clr--map {
           .clr\:#{$name} { color: $hex; }
           .bg\:#{$name} { background-color: $hex; }
         }
