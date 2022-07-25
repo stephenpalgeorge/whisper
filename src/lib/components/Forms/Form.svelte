@@ -59,7 +59,6 @@
       padding: var.$scale--notch-600 var.$scale--notch-500;
       // barely noticeable border, just lifts it off the background slightly
       border: 1px solid var.$clr--alice-blue;
-      // @todo consider changing this to match the h1 text-shadow style a bit more?
       box-shadow: 0 .5rem .5rem 0 rgba(var.$clr--eight-ball, .24);
 
       button[type="submit"] {
