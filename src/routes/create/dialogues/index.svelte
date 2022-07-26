@@ -19,7 +19,10 @@
 <div class="page-container">
     <h1>Create a Dialogue</h1>
     <p class="large">
-        Add some blurb here.
+        A dialogue is a conversation, a meeting of minds. By creating a dialogue you are
+        creating a space for open and honest communication. Only those to whom you give the
+        password will be able to take part and, just like a real-life conversation, nothing
+        is tracked, analysed or stored in a database...
     </p>
     <CreateDialogue />
 </div>

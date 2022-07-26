@@ -70,6 +70,7 @@
         font-weight: bold;
         color: var.$clr--alice-blue;
         font-size: var.$scale--notch-500;
+        text-transform: uppercase;
         cursor: pointer;
 
         transition: background-color var.$mtn--duration-base ease-out;

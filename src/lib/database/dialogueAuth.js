@@ -14,6 +14,7 @@ export default async function dialogueAuth(key, cookie) {
         credentials: 'include',
         headers: {
             'Content-type': 'application/json',
+            'Accept': 'application/json',
             'Cookie': cookie,
         },
     });

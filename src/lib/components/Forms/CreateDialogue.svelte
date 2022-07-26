@@ -30,7 +30,7 @@
     <!--  DESCRIPTION FIELD  -->
     <FormField description="Add a summary for your dialogue to help people joining know what the conversation is about. ">
         <label for="dialogue-description">Description</label>
-        <textarea name="dialogue-description" id="dialogue-description" rows="2"></textarea>
+        <textarea name="dialogue-description" id="dialogue-description" rows="2" placeholder="Add an optional summary or introduction for your dialogue."></textarea>
     </FormField>
 
     <!--  PASSWORD FIELD  -->

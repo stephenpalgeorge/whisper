@@ -14,6 +14,7 @@ export default async function createWhisper(data) {
         credentials: 'include',
         headers: {
             'Content-type': 'application/json',
+            'Accept': 'application/json',
         },
         body: JSON.stringify(data),
     });

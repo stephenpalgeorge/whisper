@@ -11,6 +11,7 @@
     import SendMessage from "$lib/components/Forms/SendMessage.svelte";
     import MessageList from "$lib/components/MessageList.svelte";
 
+    export let key;
     let message = '';
 
     /**
@@ -29,6 +30,7 @@
                 username: $userStore,
                 timestamp: `${now.getDate()}/${now.getMonth() + 1} - ${now.getHours()}:${now.getMinutes()}`,
                 type: 'chat',
+                key,
             };
             // send that object along as the payload of the `dialogue:send-message` event.
             $socket.emit('dialogues:send-message', data);
