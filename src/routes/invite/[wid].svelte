@@ -39,7 +39,7 @@
 <Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
 
 <div class="page-container">
-    <h1>Invitation to "{WID}"</h1>
+    <h1>Invitation to <span>"{WID}"</span></h1>
     <p class="large">
         Don't shout about it...but you've been invited to join the whisper with id <mark>{WID}</mark>.
         Just enter the password below, and you'll be taken straight there.
@@ -47,3 +47,9 @@
 
     <PasswordAuth bind:password submit={formSubmit} bind:error={form_error} />
 </div>
+
+<style lang="scss">
+    h1 > span {
+      font-style: italic;
+    }
+</style>
