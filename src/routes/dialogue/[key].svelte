@@ -40,7 +40,9 @@
         <div class="dialogue-container">
             <span class="pre-title">Dialogue {dialogue.wid}</span>
             <h1>{dialogue.name}</h1>
-            <p class="large">{dialogue.description}</p>
+            {#if dialogue.description && dialogue.description.length > 0}
+                <p class="large">{dialogue.description}</p>
+            {/if}
             <Dialogue key={dialogue.key} />
         </div>
     {/if}

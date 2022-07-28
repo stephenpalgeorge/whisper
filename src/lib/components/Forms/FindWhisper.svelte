@@ -95,12 +95,6 @@
         }
       }
 
-      span.error {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transform: translateY(140%);
-        color: var.$clr--pomegranate;
-      }
+      span.error { @include m.form-error; }
     }
 </style>

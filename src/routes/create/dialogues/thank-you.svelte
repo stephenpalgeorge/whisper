@@ -32,6 +32,4 @@
             {dialogue.wid}
         </mark>
     </p>
-
-    <a class="lead block" href="/dialogue/{dialogue.key}">Go straight to your Dialogue.</a>
 </div>

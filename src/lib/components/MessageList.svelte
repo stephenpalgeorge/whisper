@@ -64,10 +64,13 @@
         .message-username {
           font-size: var.$scale--notch-300;
           font-weight: bold;
+          display: block;
+          margin-bottom: .5rem;
         }
 
         p {
           color: inherit;
+          line-height: 1.5;
         }
 
         .message-timestamp {
