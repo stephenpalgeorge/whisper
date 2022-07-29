@@ -28,7 +28,7 @@
 
     <p class="description">
         Provide a username for this dialogue. This will be how you're known and
-        identified to other's in the conversation. <strong>Your name must be at least 3 characters long.</strong>
+        identified to other's in the conversation. <strong class:invalid={disabled}>Your name must be at least 3 characters long.</strong>
     </p>
 </form>
 
@@ -48,6 +48,14 @@
             font-style: italic;
             line-height: 1.5;
             color: var.$clr--deep-larkspur;
+        }
+
+        strong {
+          color: var.$clr--apple;
+          transition: color var.$mtn--duration-base var.$mtn--timing-function;
+          &.invalid {
+            color: var.$clr--pomegranate;
+          }
         }
     }
 </style>

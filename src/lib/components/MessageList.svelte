@@ -11,10 +11,23 @@
     import {userStore} from "$lib/stores/userStore.js";
 
     export let messages = [];
+
+    function scrollHandler() {
+        // for each message, check how close it is to the top and adjust the opacity accordingly
+        const messages = Array.from(document.querySelectorAll('li[class^="message"]'));
+        messages.forEach(m => {
+            const { top } = m.getBoundingClientRect();
+            if (top <= 150) {
+                m.style.opacity = `${(top - 50) / 100}`;
+            }
+        });
+    }
 </script>
 
+<svelte:window on:scroll={scrollHandler} />
+
 {#if messages.length > 0}
-    <ul>
+    <ul class="message-list">
         {#each messages as item}
             {#if item.type === 'chat'}
                 <!-- the `authored` class is applied if the current user is the author -->
@@ -33,6 +46,7 @@
 {/if}
 
 <style lang="scss">
+    @use 'sass:math';
     @use '../styles/variables' as var;
 
     ul {
@@ -46,7 +60,7 @@
         width: max-content;
         max-width: 80%;
         min-width: 6rem;
-        padding: var.$scale--notch-300 var.$scale--notch-400;
+        padding: var.$scale--notch-200 var.$scale--notch-400;
         background-color: rgba(var.$clr--melody, .25);
         border-radius: var.$scale--notch-300 var.$scale--notch-300 var.$scale--notch-300 0;
 
@@ -58,14 +72,14 @@
         }
 
         &:not(:first-of-type) {
-          margin-top: var.$scale--notch-800;
+          margin-top: var.$scale--notch-700;
         }
 
         .message-username {
           font-size: var.$scale--notch-300;
           font-weight: bold;
           display: block;
-          margin-bottom: .5rem;
+          margin-bottom: math.div(var.$scale--notch-100, 2);
         }
 
         p {

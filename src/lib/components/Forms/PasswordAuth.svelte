@@ -4,8 +4,6 @@
     export let password;
     export let submit;
     export let error = {};
-
-    $: console.log(error);
 </script>
 
 <form on:submit={submit}>

@@ -31,9 +31,14 @@
 </form>
 
 <style lang="scss">
+    @use '../../styles/variables' as var;
     @use '../../styles/mixins' as m;
 
     form {
       @include m.inline-form;
+      position: sticky;
+      top: var.$scale--notch-600;
+      background-color: #fff;
+      z-index: 1;
     }
 </style>
