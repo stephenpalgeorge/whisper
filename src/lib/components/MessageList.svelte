@@ -11,6 +11,11 @@
     import {userStore} from "$lib/stores/userStore.js";
 
     export let messages = [];
+    // we want to reverse the array, so the latest message always appears at the top,
+    // but we can't just call `.reverse()` on the original `messages` array since `reverse`
+    // is destructive and causes the order of things to get messed up. So we create a copy,
+    // which can then safely reverse.
+    $: messageList = [...messages];
 
     function scrollHandler() {
         // for each message, check how close it is to the top and adjust the opacity accordingly
@@ -28,7 +33,7 @@
 
 {#if messages.length > 0}
     <ul class="message-list">
-        {#each messages as item}
+        {#each messageList.reverse() as item}
             {#if item.type === 'chat'}
                 <!-- the `authored` class is applied if the current user is the author -->
                 <li data-author={item.username} class:authored={item.username === $userStore} class="message-{item.type}">
@@ -104,6 +109,7 @@
 
       li.message-notification {
         width: 100%;
+        border-bottom: 1px dashed rgba(var.$clr--melody, .55);
 
         p {
           color: var.$clr--approaching-dusk;

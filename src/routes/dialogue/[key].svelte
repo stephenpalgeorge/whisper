@@ -3,6 +3,8 @@
     import {socket} from "$lib/stores/socketStore.js";
     // user store tracks the user's chosen username
     import {userStore} from "$lib/stores/userStore.js";
+    // message store tracks the messages in the dialogue
+    import {messageStore} from "$lib/stores/messageStore.js";
 
     // COMPONENT IMPORTS ----------
     import Meta from "$lib/components/Globals/Meta.svelte";
@@ -27,6 +29,8 @@
         // dispatch the `dialogues:join` event with the relevant data.
         $socket.emit('dialogues:join', {username: $userStore, key: dialogue.key});
     }
+
+    // @todo - add a control to show/hide the dialogue-header
 </script>
 
 <Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
@@ -38,11 +42,13 @@
     <!-- otherwise if there *is* a username, show the dialogue -->
     {:else}
         <div class="dialogue-container">
-            <span class="pre-title">Dialogue {dialogue.wid}</span>
-            <h1>{dialogue.name}</h1>
-            {#if dialogue.description && dialogue.description.length > 0}
-                <p class="large">{dialogue.description}</p>
-            {/if}
+            <div class="dialogue-header">
+                <span class="pre-title">Dialogue {dialogue.wid}</span>
+                <h1>{dialogue.name}</h1>
+                {#if dialogue.description && dialogue.description.length > 0}
+                    <p class="large">{dialogue.description}</p>
+                {/if}
+            </div>
             <Dialogue key={dialogue.key} />
         </div>
     {/if}
