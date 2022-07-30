@@ -67,7 +67,7 @@
     }
 
     &:focus {
-      outline: .25rem solid rgba(var.$clr--approaching-dusk, .6);
+      outline: .25rem solid var.$clr--fade;
       outline-offset: .125rem;
     }
   }

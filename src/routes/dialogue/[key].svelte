@@ -31,6 +31,7 @@
     }
 
     // @todo - add a control to show/hide the dialogue-header
+    let collapsed = false;
 </script>
 
 <Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
@@ -42,14 +43,36 @@
     <!-- otherwise if there *is* a username, show the dialogue -->
     {:else}
         <div class="dialogue-container">
-            <div class="dialogue-header">
+            <div class="dialogue-header" class:collapsed>
                 <span class="pre-title">Dialogue {dialogue.wid}</span>
                 <h1>{dialogue.name}</h1>
                 {#if dialogue.description && dialogue.description.length > 0}
                     <p class="large">{dialogue.description}</p>
                 {/if}
             </div>
+            <button id="toggle-header" on:click={() => collapsed = !collapsed}>{collapsed ? 'Expand the header' : 'Collapse the header'}</button>
             <Dialogue key={dialogue.key} />
         </div>
     {/if}
 </div>
+
+<style lang="scss">
+  @use '../../lib/styles/variables' as var;
+    .dialogue-header {
+      display: block;
+
+      &.collapsed {
+        display: none;
+      }
+    }
+
+    #toggle-header {
+      background: none;
+      border: none;
+      color: var.$clr--pomegranate;
+      text-decoration: underline;
+      font-size: var.$scale--notch-500;
+      margin-top: var.$scale--notch-300;
+      cursor: pointer;
+    }
+</style>

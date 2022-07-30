@@ -1,14 +1,20 @@
 <script>
+    import {onMount} from "svelte";
     import Next from "$lib/components/Icons/Next.svelte";
 
     export let password;
     export let submit;
     export let error = {};
+
+    let passwordRef;
+    onMount(() => {
+        passwordRef.focus();
+    });
 </script>
 
 <form on:submit={submit}>
     <label for="dialogue-password" class="hidden">Enter the password.</label>
-    <input type="password" name="dialogue-password" id="dialogue-password" bind:value={password} placeholder="enter the password..." />
+    <input bind:this={passwordRef} type="password" name="dialogue-password" id="dialogue-password" bind:value={password} placeholder="enter the password..." />
     {#if error.origin && error.origin === 'password'}
         <span class="error">{error.message}</span>
     {/if}

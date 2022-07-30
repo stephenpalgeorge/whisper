@@ -108,8 +108,9 @@
       }
 
       li.message-notification {
+        margin-top: var.$scale--notch-700;
         width: 100%;
-        border-bottom: 1px dashed rgba(var.$clr--melody, .55);
+        border-bottom: 1px dashed var.$clr--fade;
 
         p {
           color: var.$clr--approaching-dusk;
