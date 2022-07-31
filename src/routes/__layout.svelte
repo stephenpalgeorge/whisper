@@ -5,7 +5,7 @@
 <main>
     <header>
     <!-- @todo re-instate main nav (needs styling etc) -->
-<!--        <MainNav />-->
+        <MainNav />
     </header>
     <slot></slot>
     <!-- @todo add a footer -->

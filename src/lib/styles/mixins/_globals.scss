@@ -85,6 +85,12 @@
     width: min(100%, 45rem);
     margin-inline: auto;
     padding-block: var.$scale--notch-900;
+    margin-top: var.$lyt--nav-height;
+  }
+
+  .container {
+    width: min(100%, 45rem);
+    margin-inline: auto;
   }
 
   .hidden {
