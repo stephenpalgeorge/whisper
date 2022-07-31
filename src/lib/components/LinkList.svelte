@@ -35,7 +35,7 @@
     li {
       flex-grow: 1;
       margin-inline: var.$scale--notch-400;
-      padding: var.$scale--notch-400 var.$scale--notch-300;
+      padding: var.$scale--notch-300 var.$scale--notch-400;
       border: 1px solid var.$clr--approaching-dusk;
       box-shadow: 0 .25rem .5rem .125rem rgba(var.$clr--eight-ball, .16);
 

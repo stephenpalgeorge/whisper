@@ -47,7 +47,7 @@
                 <span class="pre-title">Dialogue {dialogue.wid}</span>
                 <h1>{dialogue.name}</h1>
                 {#if dialogue.description && dialogue.description.length > 0}
-                    <p class="large">{dialogue.description}</p>
+                    <p id="dialogue-description" class="large">{dialogue.description}</p>
                 {/if}
             </div>
             <button id="toggle-header" on:click={() => collapsed = !collapsed}>{collapsed ? 'Expand the header' : 'Collapse the header'}</button>
@@ -63,6 +63,11 @@
 
       &.collapsed {
         display: none;
+      }
+
+      #dialogue-description {
+        padding: var.$scale--notch-400;
+        background-color: rgba(var.$clr--melody, .16);
       }
     }
 
