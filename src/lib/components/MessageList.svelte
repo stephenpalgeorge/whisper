@@ -39,11 +39,11 @@
                 <li data-author={item.username} class:authored={item.username === $userStore} class="message-{item.type}">
                     <span class="message-username">{item.username}</span>
                     <p>{item.message}</p>
-                    <span class="message-timestamp">{item.timestamp}</span>
+                    <time class="message-timestamp">{item.timestamp}</time>
                 </li>
             {:else if item.type === 'notification'}
                 <li data-author={item.username} class="message-{item.type}">
-                    <p>{item.message} <span>({item.timestamp})</span></p>
+                    <p>{item.message} <time>({item.timestamp})</time></p>
                 </li>
             {/if}
         {/each}

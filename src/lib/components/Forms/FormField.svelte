@@ -64,6 +64,10 @@
           }
         }
 
+        textarea {
+          line-height: 1.5;
+        }
+
         span.description {
           font-size: 1em;
           margin-top: var.$scale--notch-100;

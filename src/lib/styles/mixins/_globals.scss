@@ -49,6 +49,8 @@
   p, mark, a {
     font-size: var.$scale--notch-400;
     line-height: 1.8;
+    max-width: 68ch;
+
     & + & {
       margin-top: var.$scale--notch-400;
     }
@@ -56,6 +58,7 @@
     &.large {
       font-size: var.$scale--notch-500;
       line-height: 1.6;
+      max-width: 60ch;
     }
 
     &.lead {
@@ -78,6 +81,7 @@
       outline: none;
       background-color: rgba(var.$clr--deep-larkspur, .2);
       color: var.$clr--eight-ball;
+      text-decoration: underline !important;
     }
   }
 

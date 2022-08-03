@@ -66,7 +66,7 @@
       }
 
       #dialogue-description {
-        padding: var.$scale--notch-400;
+        padding: var.$scale--notch-300 var.$scale--notch-400;
         background-color: rgba(var.$clr--melody, .16);
       }
     }

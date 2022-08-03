@@ -1,11 +1,31 @@
+<script>
+    // state variable to track whether the menu pane is expanded or not
+    // this only makes a difference on mobile layout, it's value is irrelevant
+    // for larger breakpoints.
+    let expanded = false;
+    let menuItems = [
+        { path: '/find', label: 'Find' },
+        { path: '/create', label: 'Create' },
+        { path: '/about', label: 'About' },
+        { path: '/contact', label: 'Contact' },
+    ];
+</script>
+
 <nav>
     <div class="container">
         <a id="site-name" href="/">Whisper</a>
+        <input class="menu-toggle" type="checkbox" name="menu-toggle-icon" id="menu-toggle-icon" bind:checked={expanded} />
+        <label class="menu-toggle" for="menu-toggle-icon">
+            <!-- icon goes here -->
+            <div></div>
+            <div></div>
+        </label>
         <ul>
-            <li><a href="/find" class="highlighted">Find</a></li>
-            <li><a href="/create">Create</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            {#each menuItems as item}
+                <li on:click={() => expanded = false}>
+                    <a href="{item.path}">{item.label}</a>
+                </li>
+            {/each}
         </ul>
     </div>
 </nav>
@@ -41,12 +61,6 @@
           text-transform: uppercase;
           font-weight: 900;
         }
-
-        &.highlighted {
-          font-weight: 900;
-          background-color: rgba(var.$clr--eight-ball, .12);
-          color: var.$clr--eight-ball;
-        }
       }
 
       ul {
@@ -59,6 +73,72 @@
           justify-content: center;
         }
 
+        @media screen and (max-width: 767px) {
+          position: absolute;
+          top: var.$lyt--nav-height;
+          left: -100%;
+          z-index: 1;
+          background-color: #fff;
+          width: 100%;
+          flex-direction: column;
+          height: auto;
+          box-shadow: 0 .5rem .4rem 0 rgba(var.$clr--eight-ball, .16);
+          transition: left var.$mtn--duration-base var.$mtn--timing-function;
+
+          a {
+            width: 100%;
+            padding-block: var.$scale--notch-400;
+            font-size: var.$scale--notch-500;
+          }
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+        @media screen and (max-width: 767px) {
+          display: block;
+        }
+      }
+
+      label.menu-toggle {
+        padding-inline: var.$scale--notch-400;
+        position: relative;
+
+        > div {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 80%;
+          height: var.$scale--notch-100;
+          background-color: var.$clr--eight-ball;
+          transition: top var.$mtn--duration-base var.$mtn--timing-function;
+
+          &:first-child {
+            top: 40%;
+          }
+
+          &:last-child {
+            top: 60%;
+          }
+        }
+      }
+
+      input[type="checkbox"] {
+        display: none;
+
+        &:checked {
+          + label {
+            font-weight: bold;
+
+            > div {
+              top: 50%;
+            }
+          }
+
+          ~ ul {
+            left: 0;
+          }
+        }
       }
     }
 </style>
