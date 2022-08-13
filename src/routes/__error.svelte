@@ -10,7 +10,7 @@
 
 <script>
     import Meta from "$lib/components/Globals/Meta.svelte";
-    import LinkList from "$lib/components/LinkList.svelte";
+    import LinkList from "$lib/components/UI/LinkList.svelte";
 
     export let status;
     // data for the link-list component.

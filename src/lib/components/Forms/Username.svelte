@@ -52,7 +52,7 @@
 
         strong {
           color: var.$clr--apple;
-          transition: color var.$mtn--duration-base var.$mtn--timing-function;
+          transition: color var.$mtn--duration\base var.$mtn--timing-function;
           &.invalid {
             color: var.$clr--pomegranate;
           }

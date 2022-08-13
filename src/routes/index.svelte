@@ -2,8 +2,8 @@
     import {goto} from "$app/navigation";
     import * as db from '$lib/database';
     import Meta from '$lib/components/Globals/Meta.svelte';
-    import LinkList from "$lib/components/LinkList.svelte";
     import FindWhisper from "$lib/components/Forms/FindWhisper.svelte";
+    import Tabs from "$lib/components/UI/Tabs.svelte";
 
     const PAGE_TITLE = "Welcome";
     const PAGE_DESCRIPTION = "The website for secret communication";
@@ -32,19 +32,12 @@
             await goto(`/dialogue/${data.dialogue.key}`);
         }
     }
-
-    // data for the link-list component:
-    const links = [
-        { url: '/create/dialogues', title: 'Create a dialogue', description: 'Dialogues are password-protected places to talk and discuss.' },
-        { url: '/create/notes', title: 'Create a note', description: 'Notes are a secure way for you to share information or make an announcement.' },
-        { url: '/create/locations', title: 'Share a location', description: 'A safe way to let people know where you are, or where to meet you.' },
-    ];
 </script>
 
 <Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
 
 <div class="page-container">
-    <h1>Shhh...Whisper</h1>
+    <h1>Shhh... Whisper</h1>
     <p class="lead clr:aquitaine">The place for secrets.</p>
     <p>
         Share anything, have conversations and make announcements safe in the knowledge that
@@ -58,5 +51,46 @@
             bind:step={form_progress}
             bind:error={form_error}
     />
-    <LinkList {links} />
+
+    <hr>
+
+    <section>
+        <h2>Create a Whisper</h2>
+        <p class="large">
+            Whispers come in three categories: Dialogues, Notes and Locations. Follow the links below
+            to create your own Whispers and share what you need to share in secret. <a href="/create">Find out more</a>
+            or chose from the list below.
+        </p>
+        <Tabs id="whisper-teasers" items={[
+            {
+                label: 'Dialogues',
+                headline: "Dialogues are password-protected places to talk and discuss.",
+                content: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                link: { url: '/create/dialogues', label: 'Create a Dialogue' },
+                default: true,
+            },
+            {
+                label: 'Notes',
+                headline: "Notes are a secure way for you to share information or make announcements.",
+                content: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                link: { url: '/create/notes', label: 'Create a Note' },
+                default: false,
+            },
+            {
+                label: 'Locations',
+                headline: "Locations are a safe way to share where you are, or where you want to meet.",
+                content: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                link: { url: '/create/locations', label: 'Create a Location' },
+                default: false,
+            }
+        ]} />
+    </section>
 </div>
+
+<style lang="scss">
+    @use '../lib/styles/mixins' as m;
+
+    a {
+      @include m.underline;
+    }
+</style>

@@ -73,7 +73,7 @@
         text-transform: uppercase;
         cursor: pointer;
 
-        transition: background-color var.$mtn--duration-base ease-out;
+        transition: background-color var.$mtn--duration\base ease-out;
         &:hover {
           background-color: darken(var.$clr--aquitaine, 10%);
         }

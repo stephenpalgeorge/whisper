@@ -57,8 +57,8 @@
     background: var.$clr--deep-larkspur;
 
     transition:
-            border-color var.$mtn--duration-base ease-out,
-            background-color var.$mtn--duration-base ease-out;
+            border-color var.$mtn--duration\base ease-out,
+            background-color var.$mtn--duration\base ease-out;
     &:disabled {
       cursor: auto;
       pointer-events: none;

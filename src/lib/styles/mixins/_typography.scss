@@ -1,0 +1,5 @@
+@mixin underline($thickness: .125rem, $offset: .125rem) {
+  text-decoration: underline;
+  text-decoration-thickness: $thickness;
+  text-underline-offset: $offset;
+}

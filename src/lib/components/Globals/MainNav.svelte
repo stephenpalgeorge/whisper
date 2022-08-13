@@ -31,11 +31,12 @@
 </nav>
 
 <style lang="scss">
+    @use '../../styles/mixins' as m;
     @use '../../styles/variables' as var;
 
     nav {
       justify-content: space-between;
-      width: 100%;
+      width: 100vw;
       position: fixed;
       top: 0;
       z-index: 2;
@@ -61,6 +62,10 @@
           text-transform: uppercase;
           font-weight: 900;
         }
+
+        &:hover {
+          @include m.underline;
+        }
       }
 
       ul {
@@ -83,7 +88,9 @@
           flex-direction: column;
           height: auto;
           box-shadow: 0 .5rem .4rem 0 rgba(var.$clr--eight-ball, .16);
-          transition: left var.$mtn--duration-base var.$mtn--timing-function;
+          transition:
+            left var.$mtn--duration\fast var.$mtn--timing-function,
+            box-shadow var.$mtn--duration\fast var.$mtn--timing-function (var.$mtn--duration\fast * .5);
 
           a {
             width: 100%;
@@ -97,6 +104,7 @@
         display: none;
         @media screen and (max-width: 767px) {
           display: block;
+          margin-right: var.$scale--notch-400;
         }
       }
 
@@ -111,7 +119,7 @@
           width: 80%;
           height: var.$scale--notch-100;
           background-color: var.$clr--eight-ball;
-          transition: top var.$mtn--duration-base var.$mtn--timing-function;
+          transition: top var.$mtn--duration\base var.$mtn--timing-function;
 
           &:first-child {
             top: 40%;
@@ -137,6 +145,9 @@
 
           ~ ul {
             left: 0;
+            box-shadow:
+                0 .125rem .4rem .125rem rgba(var.$clr--eight-ball, .16),
+                0 1000px 0 1000px rgba(var.$clr--eight-ball, .08);
           }
         }
       }

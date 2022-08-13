@@ -24,6 +24,6 @@
     @use '../../styles/variables' as var;
 
     svg, g, path {
-      transition: fill var.$mtn--duration-base ease-out;
+      transition: fill var.$mtn--duration\base ease-out;
     }
 </style>

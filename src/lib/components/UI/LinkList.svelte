@@ -24,7 +24,7 @@
 </ul>
 
 <style lang="scss">
-  @use '../styles/variables' as var;
+  @use '../../styles/variables/index' as var;
 
   ul {
     list-style-type: none;
@@ -52,6 +52,13 @@
 
       p {
         margin-top: var.$scale--notch-200;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      li:not(:first-child) {
+        margin-top: var.$scale--notch-500;
       }
     }
   }
