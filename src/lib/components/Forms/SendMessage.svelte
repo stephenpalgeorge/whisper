@@ -37,7 +37,7 @@
     form {
       @include m.inline-form;
       position: sticky;
-      top: var.$scale--notch-600;
+      top: var.$lyt--nav-height + var.$scale--notch-600;
       background-color: #fff;
       z-index: 1;
     }

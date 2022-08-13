@@ -25,8 +25,8 @@
         const messages = Array.from(document.querySelectorAll('li[class^="message"]'));
         messages.forEach(m => {
             const { top } = m.getBoundingClientRect();
-            if (top <= 150) {
-                m.style.opacity = `${(top - 50) / 100}`;
+            if (top <= 200) {
+                m.style.opacity = `${(top - 100) / 100}`;
             }
         });
     }

@@ -91,9 +91,19 @@
         @include m.underline;
       }
 
+      code {
+        background-color: rgba(var.$clr--armor, .2);
+        padding-inline: .25em;
+        font-family: var.$font--monospace;
+      }
+
       &.authored {
         a {
           color: #fff;
+        }
+
+        code {
+          background-color: rgba(var.$clr--alice-blue, .4);
         }
       }
     }
