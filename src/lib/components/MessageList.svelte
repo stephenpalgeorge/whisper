@@ -9,7 +9,7 @@
      * */
 
     import Markdown from "markdown-it";
-    import {userStore} from "$lib/stores/userStore.js";
+    import Message from "./Message.svelte";
 
     export let messages = [];
     // we want to reverse the array, so the latest message always appears at the top,
@@ -37,19 +37,7 @@
 {#if messages.length > 0}
     <ul class="message-list">
         {#each messageList.reverse() as item}
-            {@const message = md.render(item.message)}
-            {#if item.type === 'chat'}
-                <!-- the `authored` class is applied if the current user is the author -->
-                <li data-author={item.username} class:authored={item.username === $userStore} class="message-{item.type}">
-                    <span class="message-username">{item.username}</span>
-                    {@html message}
-                    <time class="message-timestamp">{item.timestamp}</time>
-                </li>
-            {:else if item.type === 'notification'}
-                <li data-author={item.username} class="message-{item.type}">
-                    {@html message} <time>({item.timestamp})</time>
-                </li>
-            {/if}
+            <Message data={item} />
         {/each}
     </ul>
 {/if}
@@ -63,75 +51,5 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-
-      li.message-chat {
-        position: relative;
-        width: max-content;
-        max-width: 80%;
-        min-width: 6rem;
-        padding: var.$scale--notch-200 var.$scale--notch-400;
-        background-color: rgba(var.$clr--melody, .25);
-        border-radius: var.$scale--notch-300 var.$scale--notch-300 var.$scale--notch-300 0;
-
-        &.authored {
-          align-self: flex-end;
-          background-color: rgba(var.$clr--armor, 1);
-          color: var.$clr--alice-blue;
-          border-radius: var.$scale--notch-300 var.$scale--notch-300 0 var.$scale--notch-300;
-        }
-
-        &:not(:first-of-type) {
-          margin-top: var.$scale--notch-700;
-        }
-
-        .message-username {
-          font-size: var.$scale--notch-300;
-          font-weight: bold;
-          display: block;
-          margin-bottom: math.div(var.$scale--notch-100, 2);
-        }
-
-        .message-timestamp {
-          font-size: var.$scale--notch-300;
-          color: var.$clr--approaching-dusk;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          transform: translateY(140%);
-        }
-
-        .authored .message-timestamp {
-          left: unset;
-          right: 0;
-        }
-      }
-
-      li.message-notification {
-        margin-top: var.$scale--notch-700;
-        width: 100%;
-        border-bottom: 1px dashed var.$clr--fade;
-        display: flex;
-        justify-content: space-between;
-
-        span {
-          color: var.$clr--aquitaine;
-        }
-      }
-    }
-
-    :global {
-      li.message-chat {
-        p {
-          color: inherit;
-          line-height: 1.5;
-        }
-      }
-
-      li.message-notification {
-        p, time {
-          color: var.$clr--approaching-dusk;
-          font-style: italic;
-        }
-      }
     }
 </style>
