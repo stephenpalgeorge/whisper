@@ -8,6 +8,7 @@
      *
      * */
 
+    import Markdown from "markdown-it";
     import {userStore} from "$lib/stores/userStore.js";
 
     export let messages = [];
@@ -16,6 +17,8 @@
     // is destructive and causes the order of things to get messed up. So we create a copy,
     // which can then safely reverse.
     $: messageList = [...messages];
+
+    const md = new Markdown().enable(['emphasis', 'link']).disable(['blockquote', 'heading']);
 
     function scrollHandler() {
         // for each message, check how close it is to the top and adjust the opacity accordingly
@@ -34,16 +37,17 @@
 {#if messages.length > 0}
     <ul class="message-list">
         {#each messageList.reverse() as item}
+            {@const message = md.render(item.message)}
             {#if item.type === 'chat'}
                 <!-- the `authored` class is applied if the current user is the author -->
                 <li data-author={item.username} class:authored={item.username === $userStore} class="message-{item.type}">
                     <span class="message-username">{item.username}</span>
-                    <p>{item.message}</p>
+                    {@html message}
                     <time class="message-timestamp">{item.timestamp}</time>
                 </li>
             {:else if item.type === 'notification'}
                 <li data-author={item.username} class="message-{item.type}">
-                    <p>{item.message} <time>({item.timestamp})</time></p>
+                    {@html message} <time>({item.timestamp})</time>
                 </li>
             {/if}
         {/each}
@@ -87,11 +91,6 @@
           margin-bottom: math.div(var.$scale--notch-100, 2);
         }
 
-        p {
-          color: inherit;
-          line-height: 1.5;
-        }
-
         .message-timestamp {
           font-size: var.$scale--notch-300;
           color: var.$clr--approaching-dusk;
@@ -111,14 +110,27 @@
         margin-top: var.$scale--notch-700;
         width: 100%;
         border-bottom: 1px dashed var.$clr--fade;
-
-        p {
-          color: var.$clr--approaching-dusk;
-          font-style: italic;
-        }
+        display: flex;
+        justify-content: space-between;
 
         span {
           color: var.$clr--aquitaine;
+        }
+      }
+    }
+
+    :global {
+      li.message-chat {
+        p {
+          color: inherit;
+          line-height: 1.5;
+        }
+      }
+
+      li.message-notification {
+        p, time {
+          color: var.$clr--approaching-dusk;
+          font-style: italic;
         }
       }
     }
