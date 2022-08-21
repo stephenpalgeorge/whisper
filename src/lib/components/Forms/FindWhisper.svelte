@@ -94,7 +94,5 @@
           font-weight: bold;
         }
       }
-
-      span.error { @include m.form-error; }
     }
 </style>

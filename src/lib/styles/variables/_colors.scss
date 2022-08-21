@@ -5,9 +5,11 @@ $deep-larkspur:              #687387;
 $approaching-dusk:           #8B94A5;
 $aquitaine:                  #88ABB8;
 $melody:                     #BECBD6;
+$melody\fade:                rgba($melody, .4);
 $alice-blue:                 #F0F8FF;
 $pomegranate:                #C35650;
 $apple:                      #3BC742;
+$apple\fade:                 rgba($apple, .4);
 $fade:                       rgba($approaching-dusk, .6);
 $map: (
   eight-ball: $eight-ball,

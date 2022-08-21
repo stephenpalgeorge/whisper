@@ -1,4 +1,5 @@
 <script>
+    import {authStore} from "$lib/stores/authStore.js";
     // state variable to track whether the menu pane is expanded or not
     // this only makes a difference on mobile layout, it's value is irrelevant
     // for larger breakpoints.
@@ -6,9 +7,11 @@
     let menuItems = [
         { path: '/find', label: 'Find' },
         { path: '/create', label: 'Create' },
-        { path: '/about', label: 'About' },
-        { path: '/contact', label: 'Contact' },
     ];
+
+    const loginLink = { path: '/auth/login', label: 'Login', highlighted: true };
+    const logoutLink = { path: '/auth/logout', label: 'Logout' };
+    $: authStore.user?.id.length > 0 ? menuItems.push(loginLink) : menuItems.push(logoutLink);
 </script>
 
 <nav>
@@ -22,7 +25,7 @@
         </label>
         <ul>
             {#each menuItems as item}
-                <li on:click={() => expanded = false}>
+                <li class='{item.highlighted ? "highlighted bg:apple" : ""}' on:click={() => expanded = false}>
                     <a href="{item.path}">{item.label}</a>
                 </li>
             {/each}
@@ -76,6 +79,16 @@
         li {
           display: flex;
           justify-content: center;
+          &.highlighted {
+            margin-left: var.$scale--notch-400;
+            align-self: center;
+            color: #fff;
+            border-radius: .125rem;
+
+            a {
+              color: inherit;
+            }
+          }
         }
 
         @media screen and (max-width: 767px) {

@@ -1,5 +1,6 @@
 @use 'sass:math';
 @use '../variables' as var;
+@use './forms' as *;
 
 @mixin globals {
   * {
@@ -74,6 +75,10 @@
       font-weight: bold;
       line-height: 1.6;
     }
+
+    &.em {
+      font-style: italic;
+    }
   }
 
   .pre-title {
@@ -96,8 +101,13 @@
   hr {
     border: none;
     border-bottom: .125rem solid rgba(var.$clr--melody, .6);
-    margin: var.$scale--notch-900 auto;
-    width: 50%;
+    //margin: var.$scale--notch-900 auto;
+    margin: var.$scale--notch-900 0;
+    width: 70%;
+
+    &.large {
+      margin: (var.$scale--notch-900 * 2) 0;
+    }
   }
 
   .page-container {
@@ -127,5 +137,9 @@
   button.icon-button svg {
     width: 50%;
     height: auto;
+  }
+
+  span.error {
+    @include form-error;
   }
 }

@@ -20,6 +20,9 @@
     // only used if `action` is set.
     export let method = "POST";
     export let buttonText = "Submit";
+    // a boolean operator which affects the layout of the form to
+    // put grouped elements onto the same line.
+    export let compact = false;
     // `disabled` determines weather or not the form can be submitted. This is achieved
     // by toggling the `disabled` attribute on the submit button.
     export let disabled = false;
@@ -38,7 +41,7 @@
 
 <!-- submit the form with the `action` -->
 {#if action && action.length > 0}
-    <form {action} {method} bind:this={formRef}>
+    <form {action} {method} bind:this={formRef} class:compact>
         <slot></slot>
         <button {disabled} type="submit">{buttonText}</button>
     </form>
@@ -87,6 +90,33 @@
           outline: .25rem solid rgba(var.$clr--aquitaine, .4);
           outline-offset: .125rem;
         }
+      }
+    }
+
+    :global {
+      @media screen and (min-width: 768px) {
+          form.compact {
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+
+            div.form-field-group {
+                display: flex;
+                gap: var.$scale--notch-400;
+            }
+
+            .form-field {
+              flex-grow: 1;
+
+              + * {
+                margin-top: 0;
+              }
+            }
+
+            button[type="submit"] {
+              margin-top: var.$scale--notch-500 !important;
+            }
+          }
       }
     }
 </style>

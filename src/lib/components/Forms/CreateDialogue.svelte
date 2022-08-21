@@ -20,7 +20,7 @@
     $: disabled = name.length === 0 || password.length === 0;
 </script>
 
-<Form action="/create/dialogues/thank-you" {disabled}>
+<Form action="/create/dialogues/thank-you" buttonText="Let's go" {disabled}>
     <!--  NAME FIELD  -->
     <FormField description="Enter a name for your dialogue, this will be visible at the top of the dialogue's page.">
         <label class="required" for="dialogue-name">Name</label>

@@ -38,12 +38,12 @@
 
 <div class="page-container">
     <h1>Shhh... Whisper</h1>
-    <p class="lead clr:aquitaine">The place for secrets.</p>
-    <p>
-        Share anything, have conversations and make announcements safe in the knowledge that
-        nothing is tracked, none of your data is stored and you don't even need an account. You decide
-        who gets access, and how long your Whispers live for.
+    <p class="large">
+        Whisper is different. We don't track you, we don't advertise to you, and we don't
+        store anything that isn't essential; we just let you talk and share what you need
+        to share, and everything is by invitation.
     </p>
+    <a class="highlighted large" href="/signup">Create an account</a>
     <FindWhisper
             submit={findWhisper}
             bind:id={whisper_id}
@@ -52,7 +52,7 @@
             bind:error={form_error}
     />
 
-    <hr>
+    <hr class="large">
 
     <section>
         <h2>Create a Whisper</h2>
@@ -88,9 +88,20 @@
 </div>
 
 <style lang="scss">
+    @use '../lib/styles/variables' as var;
     @use '../lib/styles/mixins' as m;
 
     a {
       @include m.underline;
+      &.highlighted {
+        display: block;
+        width: max-content;
+        color: var.$clr--pomegranate;
+        padding: var.$scale--notch-100 var.$scale--notch-500;
+        border: .25rem solid var.$clr--pomegranate;
+        border-radius: .125rem;
+        text-decoration: none;
+        font-weight: bold;
+      }
     }
 </style>

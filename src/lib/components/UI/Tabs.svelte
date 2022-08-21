@@ -27,6 +27,7 @@
             {#each items as item}
                 {@const slug = slugify(item.label)}
                 <!--  render a label for each item, it will correspond to a radio input in the `tab-contents`  -->
+                <!--  @todo there're a11y concerns with this as the labels can't be navigable with the keyboard... need to think about this  -->
                 <label
                     on:click={() => active = item}
                     for="{slug}"
@@ -57,9 +58,12 @@
       margin-top: var.$scale--notch-700;
       padding: var.$scale--notch-600 var.$scale--notch-500;
       background-color: var.$clr--armor\fade;
+      border: .125rem solid var.$clr--melody;
 
       .tab-controls {
-        padding-block-end: var.$scale--notch-700;
+        padding-block-end: var.$scale--notch-900 * .5;
+        margin-block-end: var.$scale--notch-900 * .5;
+        border-bottom: .125rem solid rgba(var.$clr--melody, .3);
 
         label {
           margin-inline: var.$scale--notch-400;
@@ -111,6 +115,10 @@
           text-decoration: none;
           color: #fff;
           background-color: var.$clr--apple;
+
+          &:focus {
+            outline: .25rem solid var.$clr--apple\fade;
+          }
         }
       }
 

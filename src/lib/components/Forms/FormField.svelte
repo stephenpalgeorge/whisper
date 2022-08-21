@@ -33,6 +33,7 @@
       .form-field {
         display: flex;
         flex-direction: column;
+        position: relative;
 
         label {
           font-weight: bold;
@@ -49,7 +50,9 @@
         }
 
         label + input,
-        label + textarea {
+        label + textarea,
+        label + select,
+        label + .input-container {
           margin-top: var.$scale--notch-100;
         }
 
