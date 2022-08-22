@@ -1,6 +1,6 @@
 import * as db from '$lib/database';
 
-export async function post({ request }) {
+export async function POST({ request }) {
     const formData = await request.formData();
     const dataObject = Object.fromEntries(formData);
 

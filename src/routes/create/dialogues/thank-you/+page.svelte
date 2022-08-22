@@ -9,8 +9,9 @@
      */
 
     import Meta from "$lib/components/Globals/Meta.svelte";
-    // `dialogue` populated by endpoint -> @see './thank-you.js'.
-    export let dialogue;
+    // `dialogue` populated by endpoint -> @see './+page.server.js'.
+    export let data;
+    let {dialogue} = data;
 
     const PAGE_TITLE = "Dialogue Created";
     const PAGE_DESCRIPTION = "You created a new Dialogue - hooray. Send the ID and password out to anyone you want to be able to join.";

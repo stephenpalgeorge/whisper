@@ -1,18 +1,11 @@
 <script context="module">
-    export function load({ status }) {
-        return {
-            props: {
-                status,
-            }
-        }
-    }
+    import {page} from "$app/stores";
 </script>
 
 <script>
     import Meta from "$lib/components/Globals/Meta.svelte";
     import LinkList from "$lib/components/UI/LinkList.svelte";
 
-    export let status;
     // data for the link-list component.
     const links = [
         { url: '/', title: 'Go home', description: 'Go back to the homepage and create or search for a whisper.' },
@@ -21,24 +14,24 @@
     ];
 </script>
 
-<Meta title={`${status} Error`} description="Something went wrong..." />
+<Meta title={`${$page.status} Error`} description="Something went wrong..." />
 
 <div class="page-container">
     <section>
         <h1>Oops..!</h1>
-        <h2>{status} Error.</h2>
-        {#if status === 404}
+        <h2>{$page.status} Error.</h2>
+        {#if $page.status === 404}
             <p>
                 <strong>Sorry, we couldn't find that page.</strong><br />
                 It might have moved, or there could be a mistake in the URL?
             </p>
-        {:else if status === 403}
+        {:else if $page.status === 403}
             <p>
                 <strong>Sorry, we can't show you that.</strong><br />
                 You might not be properly authenticated for this whisper, or it could have expired
                 and no longer be available.
             </p>
-        {:else if status === 500}
+        {:else if $page.status === 500}
             <p>
                 <strong>Oh no! Something went wrong.</strong><br />
                 Sorry we can't give you more information, but something broke on our end. Try again,

@@ -11,7 +11,7 @@
 
     import {page} from "$app/stores";
     import {goto} from "$app/navigation";
-    import * as db from '../../lib/database';
+    import * as db from '../../../lib/database';
     import Meta from "$lib/components/Globals/Meta.svelte";
     import PasswordAuth from "$lib/components/Forms/PasswordAuth.svelte";
 

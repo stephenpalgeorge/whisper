@@ -4,9 +4,9 @@
 
     const PAGE_TITLE = "Welcome";
     const PAGE_DESCRIPTION = "Thank you for signing up to Whisper!";
-    // these props are populated by DB
-    // @see ./welcome.js
-    export let user = {};
+    // @see ./+page.server.js
+    export let data;
+    let {user} = data;
     let username = user.username || "";
     let password = "";
 </script>

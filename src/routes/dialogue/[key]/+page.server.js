@@ -1,7 +1,7 @@
 import getSSRCookie from "$lib/utils/getSSRCookie.js";
 import * as db from '$lib/database';
 
-export async function get({ params, request }) {
+export async function GET({ params, request }) {
     // we send the auth cookie along manually here because of the server-side
     // rendering, which doesn't know what cookies are in the browser, so we can't rely
     // on `credentials: 'include'` (which only works in the browser).

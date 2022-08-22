@@ -3,16 +3,15 @@
     import {socket} from "$lib/stores/socketStore.js";
     // user store tracks the user's chosen username
     import {userStore} from "$lib/stores/userStore.js";
-    // message store tracks the messages in the dialogue
-    import {messageStore} from "$lib/stores/messageStore.js";
 
     // COMPONENT IMPORTS ----------
     import Meta from "$lib/components/Globals/Meta.svelte";
     import Username from "$lib/components/Forms/Username.svelte";
     import Dialogue from "$lib/components/Dialogue.svelte";
 
-    // `dialogue` populated by endpoint -> @see './[key].js'.
-    export let dialogue;
+    // `data` populated by endpoint -> @see './+page.server.js'.
+    export let data;
+    let {dialogue} = data;
 
     const PAGE_TITLE = 'Dialogue';
     const PAGE_DESCRIPTION = 'Talk in secret, only people with the ID and password for this Dialogue will ever be able to find it.';

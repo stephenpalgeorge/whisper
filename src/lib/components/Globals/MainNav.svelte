@@ -11,7 +11,7 @@
 
     const loginLink = { path: '/auth/login', label: 'Login', highlighted: true };
     const logoutLink = { path: '/auth/logout', label: 'Logout' };
-    $: authStore.user?.id.length > 0 ? menuItems.push(loginLink) : menuItems.push(logoutLink);
+    $: authStore.user?.id.length > 0 ? menuItems.push(logoutLink) : menuItems.push(loginLink);
 </script>
 
 <nav>
