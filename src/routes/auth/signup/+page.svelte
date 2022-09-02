@@ -18,6 +18,6 @@
         A Whisper account means you have full access to all of our features. You'll
         be able to create and manage dialogues, notices and locations.
     </p>
-    <p class="em large">Already have an account? <a href="/auth/signup">Login here</a></p>
+    <p class="em large">Already have an account? <a href="/auth/login">Login here</a></p>
     <Signup bind:username bind:email bind:password />
 </div>

@@ -2,11 +2,29 @@
     import Meta from "$lib/components/Globals/Meta.svelte";
     import Login from "$lib/components/Forms/Login.svelte";
     import {userStore} from "../../../lib/stores/userStore.js";
+    import {goto} from "$app/navigation";
 
     const PAGE_TITLE = "Welcome";
     const PAGE_DESCRIPTION = "Thank you for signing up to Whisper!";
     let username = $userStore;
     let password = "";
+
+    async function login(e) {
+        e.preventDefault();
+        const res = await db.login({username, password});
+        const data = await res.json();
+
+        if (!res.ok) {
+            username = "";
+            password = "";
+            form_error = data;
+        } else {
+            // set auth stuff from response
+            $authStore = data;
+            // forward to the user's dashboard
+            await goto('/dashboard');
+        }
+    }
 </script>
 
 <Meta title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
@@ -18,5 +36,5 @@
         You can use the form below to login, or use some of these quick links
         to access key pages in our documentation.
     </p>
-    <Login bind:username bind:password />
+    <Login submit={login} bind:username bind:password />
 </div>
