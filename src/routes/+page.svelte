@@ -43,7 +43,7 @@
         store anything that isn't essential; we just let you talk and share what you need
         to share, and everything is by invitation.
     </p>
-    <a class="highlighted large" href="/signup">Create an account</a>
+    <a class="highlighted large" href="/auth/signup">Create an account</a>
     <FindWhisper
             submit={findWhisper}
             bind:id={whisper_id}

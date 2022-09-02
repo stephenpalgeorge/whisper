@@ -9,7 +9,7 @@
      */
 
     import Meta from "$lib/components/Globals/Meta.svelte";
-    // `dialogue` populated by endpoint -> @see './+page.server.js'.
+    // `dialogue` populated by endpoint -> @see './+server.js'.
     export let data;
     let {dialogue} = data;
 

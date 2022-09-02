@@ -9,7 +9,7 @@
     import Username from "$lib/components/Forms/Username.svelte";
     import Dialogue from "$lib/components/Dialogue.svelte";
 
-    // `data` populated by endpoint -> @see './+page.server.js'.
+    // `data` populated by endpoint -> @see './+server.js'.
     export let data;
     let {dialogue} = data;
 

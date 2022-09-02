@@ -1,3 +1,4 @@
+import {error} from "@sveltejs/kit";
 import * as db from '$lib/database';
 
 export async function POST({ request }) {
@@ -9,15 +10,11 @@ export async function POST({ request }) {
     console.log(data);
 
     if (!res.ok) {
-        return {
-            status: 400,
-        }
+        throw error(400, 'Could not create your account...sorry');
     }
 
-    return {
-        status: 200,
-        body: {
-            user: data.user,
-        }
-    }
+    console.log(data.user);
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return new Response(JSON.stringify(data), {headers});
 }
