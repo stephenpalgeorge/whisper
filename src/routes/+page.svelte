@@ -54,6 +54,7 @@
 
     <hr class="large">
 
+    <!--  @todo - move this section to the dashboard page; it should only be available to logged in users  -->
     <section>
         <h2>Create a Whisper</h2>
         <p class="large">
@@ -97,10 +98,6 @@
         display: block;
         width: max-content;
         color: var.$clr--pomegranate;
-        padding: var.$scale--notch-100 var.$scale--notch-500;
-        border: .25rem solid var.$clr--pomegranate;
-        border-radius: .125rem;
-        text-decoration: none;
         font-weight: bold;
       }
     }

@@ -12,7 +12,6 @@
 
     async function submit(e) {
         e.preventDefault();
-        console.log('submit function');
         const formData = new FormData();
         formData.append('signup-email', email);
         formData.append('signup-username', username);
@@ -20,6 +19,7 @@
 
         const res = await fetch('/api/create-user', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
             },

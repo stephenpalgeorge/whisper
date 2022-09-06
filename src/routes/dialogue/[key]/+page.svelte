@@ -10,6 +10,7 @@
     import Dialogue from "$lib/components/Dialogue.svelte";
 
     // `data` populated by endpoint -> @see './+server.js'.
+    /** @type {import('./$types').PageData} */
     export let data;
     let {dialogue} = data;
 

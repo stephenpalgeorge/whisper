@@ -1,6 +1,7 @@
 import getSSRCookie from "$lib/utils/getSSRCookie.js";
 import * as db from '$lib/database';
 
+/** @type {import('./$types').PageServerLoad} */
 export async function GET({ params, request }) {
     // we send the auth cookie along manually here because of the server-side
     // rendering, which doesn't know what cookies are in the browser, so we can't rely

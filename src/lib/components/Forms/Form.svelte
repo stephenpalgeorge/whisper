@@ -60,9 +60,9 @@
     form {
       @include m.form-base;
       padding: var.$scale--notch-600 var.$scale--notch-500;
-      // barely noticeable border, just lifts it off the background slightly
-      border: 1px solid var.$clr--alice-blue;
-      box-shadow: 0 .5rem .5rem 0 rgba(var.$clr--eight-ball, .24);
+      border: .125rem solid var.$clr--eight-ball;
+      box-shadow: .125rem .125rem 0 .125rem #fff,
+        .5rem .5rem 0 .25rem rgba(var.$clr--eight-ball, .16);;
 
       button[type="submit"] {
         margin-top: var.$scale--notch-800;
