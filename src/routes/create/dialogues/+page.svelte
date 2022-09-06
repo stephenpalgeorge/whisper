@@ -20,7 +20,6 @@
     // This is a protected route - only authenticated users should be able to load this
     // page, everyone else gets redirected to `/auth/login`.
     async function authenticate() {
-        console.log($authStore);
         const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/authorise`, {
             method: 'POST',
             credentials: 'include',
